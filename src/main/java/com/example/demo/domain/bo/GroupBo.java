@@ -1,5 +1,6 @@
 package com.example.demo.domain.bo;
 
+import com.example.demo.domain.vo.GroupVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,4 +21,11 @@ public class GroupBo {
   private List<TrainerBo> trainers;
 
   private List<TraineeBo> trainees;
+
+  public GroupVo toVo () {
+    return GroupVo.builder()
+            .id(this.id)
+            .name(this.name)
+            .build();
+  }
 }

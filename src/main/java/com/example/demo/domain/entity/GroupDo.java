@@ -1,5 +1,6 @@
 package com.example.demo.domain.entity;
 
+import com.example.demo.domain.bo.GroupBo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,11 @@ public class GroupDo {
   @OneToMany(cascade = CascadeType.ALL,  mappedBy = "group")
   private List<TraineeDo> trainees;
 
-
+  public GroupBo toBo () {
+    return GroupBo.builder()
+            .id(this.id)
+            .name(this.name)
+            .build();
+  }
 
 }

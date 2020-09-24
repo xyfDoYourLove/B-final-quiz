@@ -1,5 +1,7 @@
 package com.example.demo.domain.bo;
 
+import com.example.demo.domain.vo.GroupVo;
+import com.example.demo.domain.vo.TraineeVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +26,25 @@ public class TraineeBo {
   private String githubAccount;
 
   private GroupBo group;
+
+  public TraineeVo toVo() {
+
+    GroupVo groupVo;
+
+    if (this.group == null) {
+      groupVo = null;
+    }else {
+      groupVo = this.group.toVo();
+    }
+
+    return TraineeVo.builder()
+            .id(this.id)
+            .name(this.name)
+            .email(this.email)
+            .githubAccount(this.githubAccount)
+            .office(this.office)
+            .zoomId(this.zoomId)
+            .group(groupVo)
+            .build();
+  }
 }
