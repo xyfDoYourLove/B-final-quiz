@@ -3,7 +3,7 @@ package com.example.demo.service;
 import com.example.demo.common.constant.ExceptionMessageConstant;
 import com.example.demo.domain.entity.TraineeDo;
 import com.example.demo.domain.vo.TraineeVo;
-import com.example.demo.exception.TraineeNotExistException;
+import com.example.demo.exception.EntityNotExistException;
 import com.example.demo.repository.TraineeRepository;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +34,7 @@ public class TraineeService {
   public void deleteTraineeById(Long traineeId) {
     Optional<TraineeDo> traineeDo = traineeRepository.findById(traineeId);
     if (!traineeDo.isPresent()) {
-      throw new TraineeNotExistException(ExceptionMessageConstant.TRAINEE_NOT_EXIST);
+      throw new EntityNotExistException(ExceptionMessageConstant.TRAINEE_NOT_EXIST);
     }
     traineeRepository.delete(traineeDo.get());
   }

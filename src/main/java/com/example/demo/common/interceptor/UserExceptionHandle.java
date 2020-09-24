@@ -1,7 +1,7 @@
 package com.example.demo.common.interceptor;
 
 import com.example.demo.exception.BusinessError;
-import com.example.demo.exception.TraineeNotExistException;
+import com.example.demo.exception.EntityNotExistException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.ObjectError;
@@ -32,9 +32,9 @@ public class UserExceptionHandle {
     return myError;
   }
 
-  @ExceptionHandler(value = {TraineeNotExistException.class})
+  @ExceptionHandler(value = {EntityNotExistException.class})
   @ResponseStatus(HttpStatus.NOT_FOUND)
-  public BusinessError userIdNotExistExceptionHandle(TraineeNotExistException exception) {
+  public BusinessError userIdNotExistExceptionHandle(EntityNotExistException exception) {
     BusinessError myError = new BusinessError();
     myError.setMessage(exception.getMessage());
     log.error(exception.getMessage());

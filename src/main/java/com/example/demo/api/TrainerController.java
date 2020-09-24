@@ -32,4 +32,10 @@ public class TrainerController {
   public TrainerVo createTrainee(@RequestBody @Valid TrainerVo trainerVo) {
     return trainerService.createTrainer(trainerVo);
   }
+
+  @DeleteMapping(path = "/{trainer_id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deleteTrainerById(@PathVariable("trainer_id") Long trainerId) {
+    trainerService.deleteTrainerById(trainerId);
+  }
 }

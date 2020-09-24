@@ -28,6 +28,8 @@ public class ExceptionMessageConstant {
 
   public static final String TRAINEE_NOT_EXIST = "学员不存在";
 
+  public static final String TRAINER_NOT_EXIST = "讲师不存在";
+
   public static final String TRAINER_USERNAME_IS_REQUIRED = "讲师名不能为空";
 
   public static final String YEAR_IS_REQUIRED = "历年不能为空";
