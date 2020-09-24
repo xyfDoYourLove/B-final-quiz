@@ -5,7 +5,6 @@ import com.example.demo.domain.entity.GroupDo;
 import com.example.demo.domain.entity.TraineeDo;
 import com.example.demo.domain.entity.TrainerDo;
 import com.example.demo.domain.vo.GroupVo;
-import com.example.demo.domain.vo.TraineeVo;
 import com.example.demo.exception.EntityNotExistException;
 import com.example.demo.exception.GroupNameNotRepeatException;
 import com.example.demo.repository.GroupRepository;
@@ -79,7 +78,9 @@ public class GroupService {
 
     setGroupedIsTrue(allGroup);
 
-    return allGroup.stream().map(it -> it.toBo().toVo()).collect(Collectors.toList());
+    List<GroupDo> newGroupList = groupRepository.saveAll(allGroup);
+
+    return newGroupList.stream().map(it -> it.toBo().toVo()).collect(Collectors.toList());
   }
 
   private int getTraineesSize(List<TraineeDo> allTrainee, int groupCount, int index) {
