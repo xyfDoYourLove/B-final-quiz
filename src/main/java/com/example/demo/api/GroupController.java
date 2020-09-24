@@ -6,6 +6,7 @@ import com.example.demo.service.GroupService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,13 @@ public class GroupController {
   }
 
   @GetMapping
-  public List<GroupVo> getNotGroupedTrainee() {
+  public List<GroupVo> getAllGroups() {
     return groupService.findAllGroups();
+  }
+
+  @PatchMapping(path = "/{group_id}")
+  public GroupVo editGroupName(@PathVariable("group_id") Long groupId, @RequestBody @Valid GroupVo groupVo) {
+    return groupService.editGroupName(groupId, groupVo);
   }
 
 }

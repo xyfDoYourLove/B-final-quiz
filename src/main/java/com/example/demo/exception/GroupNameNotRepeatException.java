@@ -1,12 +1,12 @@
 package com.example.demo.exception;
 
-public class EntityNotExistException extends RuntimeException {
+public class GroupNameNotRepeatException extends RuntimeException {
 
   private final String errorMessage;
 
   private final String filedValue;
 
-  public EntityNotExistException(String errorMessage, String feildValue) {
+  public GroupNameNotRepeatException(String errorMessage, String feildValue) {
     this.errorMessage = errorMessage;
     this.filedValue = feildValue;
   }

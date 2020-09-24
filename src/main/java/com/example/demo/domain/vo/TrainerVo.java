@@ -17,7 +17,7 @@ public class TrainerVo {
 
   private long id;
 
-  @NotBlank(message = ExceptionMessageConstant.TRAINER_USERNAME_IS_REQUIRED)
+  @NotBlank(message = ExceptionMessageConstant.TRAINER_NAME_IS_REQUIRED)
   private String name;
 
   public TrainerBo toBo() {
