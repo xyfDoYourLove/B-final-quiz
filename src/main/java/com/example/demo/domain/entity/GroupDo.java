@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "groups")
@@ -32,6 +33,8 @@ public class GroupDo {
     return GroupBo.builder()
             .id(this.id)
             .name(this.name)
+            .trainees(trainees.stream().map(it -> it.toBo()).collect(Collectors.toList()))
+            .trainers(trainers.stream().map(it -> it.toBo()).collect(Collectors.toList()))
             .build();
   }
 

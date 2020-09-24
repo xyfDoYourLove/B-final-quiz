@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import com.example.demo.domain.vo.GroupVo;
 import com.example.demo.domain.vo.TraineeVo;
 import com.example.demo.service.GroupService;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +18,11 @@ public class GroupController {
 
   public GroupController(GroupService groupService) {
     this.groupService = groupService;
+  }
+
+  @GetMapping
+  public List<GroupVo> getNotGroupedTrainee() {
+    return groupService.findAllGroups();
   }
 
 }
