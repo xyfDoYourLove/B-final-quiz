@@ -34,7 +34,7 @@ public class TraineeService {
   public void deleteTraineeById(Long traineeId) {
     Optional<TraineeDo> traineeDo = traineeRepository.findById(traineeId);
     if (!traineeDo.isPresent()) {
-      throw new EntityNotExistException(ExceptionMessageConstant.TRAINEE_NOT_EXIST);
+      throw new EntityNotExistException(ExceptionMessageConstant.TRAINEE_NOT_EXIST, traineeId.toString());
     }
     traineeRepository.delete(traineeDo.get());
   }

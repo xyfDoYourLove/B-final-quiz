@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 @Slf4j
-public class UserExceptionHandle {
+public class BusinessExceptionHandle {
 
   @ExceptionHandler(value = {MethodArgumentNotValidException.class})
   @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -40,7 +40,7 @@ public class UserExceptionHandle {
     log.error(exception.getMessage());
 
     Map<String, String> details = new HashMap<>();
-    details.put("trainee_id", exception.getMessage());
+    details.put("id:"+exception.getFeildValue(), exception.getMessage());
     myError.setDetails(details);
     return myError;
   }

@@ -6,12 +6,19 @@ public class EntityNotExistException extends RuntimeException {
 
   private final String errorMessage;
 
-  public EntityNotExistException(String errorMessage) {
+  private final String feildValue;
+
+  public EntityNotExistException(String errorMessage, String feildValue) {
     this.errorMessage = errorMessage;
+    this.feildValue = feildValue;
   }
 
   @Override
   public String getMessage() {
     return errorMessage;
+  }
+
+  public String getFeildValue() {
+    return feildValue;
   }
 }
