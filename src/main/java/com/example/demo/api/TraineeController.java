@@ -32,4 +32,10 @@ public class TraineeController {
     return traineeService.createTrainee(traineeVo);
   }
 
+  @DeleteMapping(path = "/{trainee_id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deleteTraineeById(@PathVariable("trainee_id") Long traineeId) {
+    traineeService.deleteTraineeById(traineeId);
+  }
+
 }

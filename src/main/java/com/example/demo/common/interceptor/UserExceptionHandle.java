@@ -1,7 +1,7 @@
 package com.example.demo.common.interceptor;
 
 import com.example.demo.exception.BusinessError;
-import com.example.demo.exception.UserNotExistException;
+import com.example.demo.exception.TraineeNotExistException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.ObjectError;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -31,12 +32,16 @@ public class UserExceptionHandle {
     return myError;
   }
 
-  @ExceptionHandler(value = {UserNotExistException.class})
+  @ExceptionHandler(value = {TraineeNotExistException.class})
   @ResponseStatus(HttpStatus.NOT_FOUND)
-  public BusinessError userIdNotExistExceptionHandle(UserNotExistException exception) {
+  public BusinessError userIdNotExistExceptionHandle(TraineeNotExistException exception) {
     BusinessError myError = new BusinessError();
     myError.setMessage(exception.getMessage());
     log.error(exception.getMessage());
+
+    Map<String, String> details = new HashMap<>();
+    details.put("trainee_id", exception.getMessage());
+    myError.setDetails(details);
     return myError;
   }
 }

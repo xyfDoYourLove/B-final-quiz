@@ -26,7 +26,7 @@ public class ExceptionMessageConstant {
 
   public static final String GITHUB_IS_REQUIRED = "github不能为空";
 
-  public static final String USER_NOT_EXIST = "用户不存在";
+  public static final String TRAINEE_NOT_EXIST = "学员不存在";
 
   public static final String YEAR_IS_REQUIRED = "历年不能为空";
 

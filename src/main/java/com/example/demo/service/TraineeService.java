@@ -1,11 +1,14 @@
 package com.example.demo.service;
 
+import com.example.demo.common.constant.ExceptionMessageConstant;
 import com.example.demo.domain.entity.TraineeDo;
 import com.example.demo.domain.vo.TraineeVo;
+import com.example.demo.exception.TraineeNotExistException;
 import com.example.demo.repository.TraineeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,5 +30,13 @@ public class TraineeService {
 
   public TraineeVo createTrainee(TraineeVo traineeVo) {
     return traineeRepository.save(traineeVo.toBo().toDo()).toBo().toVo();
+  }
+
+  public void deleteTraineeById(Long traineeId) {
+    Optional<TraineeDo> traineeDo = traineeRepository.findById(traineeId);
+    if (!traineeDo.isPresent()) {
+      throw new TraineeNotExistException(ExceptionMessageConstant.TRAINEE_NOT_EXIST);
+    }
+    traineeRepository.delete(traineeDo.get());
   }
 }

@@ -1,10 +1,12 @@
 package com.example.demo.exception;
 
-public class UserNotExistException extends RuntimeException {
+import java.util.function.Supplier;
+
+public class TraineeNotExistException extends RuntimeException {
 
   private final String errorMessage;
 
-  public UserNotExistException(String errorMessage) {
+  public TraineeNotExistException(String errorMessage) {
     this.errorMessage = errorMessage;
   }
 
