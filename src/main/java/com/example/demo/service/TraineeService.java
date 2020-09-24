@@ -24,4 +24,8 @@ public class TraineeService {
             .map(item -> item.toVo())
             .collect(Collectors.toList());
   }
+
+  public TraineeVo createTrainee(TraineeVo traineeVo) {
+    return traineeRepository.save(traineeVo.toBo().toDo()).toBo().toVo();
+  }
 }

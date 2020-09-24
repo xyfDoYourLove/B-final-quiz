@@ -32,7 +32,7 @@ public class InitUtil {
             .map(it -> TraineeDo.builder()
                     .name(it)
                     .email("xyf@thoughtworks.com")
-                    .githubAccount("xyf")
+                    .github("xyf")
                     .office("北京")
                     .zoomId("1234567")
                     .grouped(false)

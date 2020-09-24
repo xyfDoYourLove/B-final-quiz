@@ -2,12 +2,6 @@ package com.example.demo.common.constant;
 
 public class ExceptionMessageConstant {
 
-  public static final String YEAR_IS_REQUIRED = "历年不能为空";
-  public static final String TITLE_IS_REQUIRED = "教育经历标题不能为空";
-  public static final String ED_DESCRIPTION_ID_REQUIRED = "教育经历描述不能为空";
-  public static final String TITLE_LENGTH_IS_ILLEGAL = "教育经历标题长度不合法";
-  public static final String ED_DESCRIPTION_LENGTH_IS_ILLEGAL = "教育经历描述长度不合法";
-
   private ExceptionMessageConstant() {}
 
   public static final String USERNAME_LENGTH_IS_ILLEGAL = "用户名长度不合法";
@@ -24,6 +18,24 @@ public class ExceptionMessageConstant {
 
   public static final String USERNAME_IS_REQUIRED = "用户名不能为空";
 
+  public static final String OFFICE_IS_REQUIRED = "办公室不能为空";
+
+  public static final String EMAIL_IS_REQUIRED = "邮箱不能为空";
+
+  public static final String ZOOM_ID_IS_REQUIRED = "zoomid不能为空";
+
+  public static final String GITHUB_IS_REQUIRED = "github不能为空";
+
   public static final String USER_NOT_EXIST = "用户不存在";
+
+  public static final String YEAR_IS_REQUIRED = "历年不能为空";
+
+  public static final String TITLE_IS_REQUIRED = "教育经历标题不能为空";
+
+  public static final String ED_DESCRIPTION_ID_REQUIRED = "教育经历描述不能为空";
+
+  public static final String TITLE_LENGTH_IS_ILLEGAL = "教育经历标题长度不合法";
+
+  public static final String ED_DESCRIPTION_LENGTH_IS_ILLEGAL = "教育经历描述长度不合法";
 
 }

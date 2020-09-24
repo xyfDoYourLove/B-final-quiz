@@ -29,7 +29,7 @@ public class TraineeDo {
 
   private String zoomId;
 
-  private String githubAccount;
+  private String github;
 
   private boolean grouped;
 
@@ -49,7 +49,7 @@ public class TraineeDo {
             .id(this.id)
             .name(this.name)
             .email(this.email)
-            .githubAccount(this.githubAccount)
+            .github(this.github)
             .office(this.office)
             .zoomId(this.zoomId)
             .group(groupBo)
