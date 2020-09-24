@@ -3,6 +3,7 @@ package com.example.demo.common.util;
 import com.example.demo.domain.entity.GroupDo;
 import com.example.demo.domain.entity.TraineeDo;
 import com.example.demo.domain.entity.TrainerDo;
+import com.example.demo.repository.GroupRepository;
 import com.example.demo.repository.TraineeRepository;
 import com.example.demo.repository.TrainerRepository;
 import org.springframework.stereotype.Component;
@@ -24,35 +25,53 @@ public class InitUtil {
 
   List<String> trainerNames = Arrays.asList("老大", "老二", "老三", "老四", "老五", "老六");
 
+  List<Integer> groupIds = Arrays.asList(1, 2, 3);
+
   private final TraineeRepository traineeRepository;
 
   private final TrainerRepository trainerRepository;
 
-  public InitUtil(TraineeRepository traineeRepository, TrainerRepository trainerRepository) {
+  private final GroupRepository groupRepository;
+
+  public InitUtil(TraineeRepository traineeRepository, TrainerRepository trainerRepository, GroupRepository groupRepository) {
     this.traineeRepository = traineeRepository;
     this.trainerRepository = trainerRepository;
+    this.groupRepository = groupRepository;
   }
 
   public void initTraineeRepo() {
 
     List<TraineeDo> traineeDoList = traineeNames.stream()
-            .map(it -> TraineeDo.builder()
-                    .name(it)
-                    .email("xyf@thoughtworks.com")
-                    .github("xyf")
-                    .office("北京")
-                    .zoomId("1234567")
-                    .grouped(false)
-                    .group(null)
-                    .build())
+            .map(it -> {
+              return TraineeDo.builder()
+                      .name(it)
+                      .email("xyf@thoughtworks.com")
+                      .github("xyf")
+                      .office("北京")
+                      .zoomId("1234567")
+                      .grouped(false)
+                      .group(null)
+                      .build();
+            })
             .collect(Collectors.toList());
 
     List<TrainerDo> trainerDoList = trainerNames.stream()
             .map(it -> TrainerDo.builder()
                     .name(it)
+                    .grouped(false)
                     .group(null)
                     .build())
             .collect(Collectors.toList());
+
+    List<GroupDo> groupDoList = groupIds.stream()
+            .map(it -> GroupDo.builder()
+                    .id(it)
+                    .name(it + "组")
+                    .trainees(traineeDoList.subList(1*it-1, 10*it))
+                    .trainers(trainerDoList.subList(1*it-1, 2*it))
+                    .build())
+            .collect(Collectors.toList());
+    groupRepository.saveAll(groupDoList);
 
     traineeRepository.saveAll(traineeDoList);
     trainerRepository.saveAll(trainerDoList);

@@ -23,10 +23,10 @@ public class GroupDo {
 
   private String name;
 
-  @OneToMany(cascade = CascadeType.ALL,  mappedBy = "group")
+  @OneToMany(mappedBy = "group")
   private List<TrainerDo> trainers;
 
-  @OneToMany(cascade = CascadeType.ALL,  mappedBy = "group")
+  @OneToMany(mappedBy = "group")
   private List<TraineeDo> trainees;
 
   public GroupBo toBo () {

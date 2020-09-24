@@ -31,4 +31,9 @@ public class GroupController {
     return groupService.editGroupName(groupId, groupVo);
   }
 
+  @PostMapping(path = "/auto-grouping")
+  public List<GroupVo> autoGrouping() {
+    return groupService.autoGrouping();
+  }
+
 }
