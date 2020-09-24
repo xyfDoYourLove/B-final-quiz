@@ -2,7 +2,9 @@ package com.example.demo.common.util;
 
 import com.example.demo.domain.entity.GroupDo;
 import com.example.demo.domain.entity.TraineeDo;
+import com.example.demo.domain.entity.TrainerDo;
 import com.example.demo.repository.TraineeRepository;
+import com.example.demo.repository.TrainerRepository;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -20,10 +22,15 @@ public class InitUtil {
           "马庆", "商婕", "余榕", "谌哲", "董翔锐", "陈泰宇", "赵允齐", "张柯", "廖文强", "刘轲",
           "廖浚斌", "凌凤仪");
 
+  List<String> trainerNames = Arrays.asList("老大", "老二", "老三", "老四", "老五", "老六");
+
   private final TraineeRepository traineeRepository;
 
-  public InitUtil(TraineeRepository traineeRepository) {
+  private final TrainerRepository trainerRepository;
+
+  public InitUtil(TraineeRepository traineeRepository, TrainerRepository trainerRepository) {
     this.traineeRepository = traineeRepository;
+    this.trainerRepository = trainerRepository;
   }
 
   public void initTraineeRepo() {
@@ -40,7 +47,16 @@ public class InitUtil {
                     .build())
             .collect(Collectors.toList());
 
+    List<TrainerDo> trainerDoList = trainerNames.stream()
+            .map(it -> TrainerDo.builder()
+                    .name(it)
+                    .group(null)
+                    .build())
+            .collect(Collectors.toList());
+
     traineeRepository.saveAll(traineeDoList);
+    trainerRepository.saveAll(trainerDoList);
+
   }
 
 }

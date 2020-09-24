@@ -16,7 +16,7 @@ public class ExceptionMessageConstant {
 
   public static final String DESCRIPTION_LENGTH_IS_ILLEGAL = "个人介绍信息长度不合法";
 
-  public static final String USERNAME_IS_REQUIRED = "用户名不能为空";
+  public static final String TRAINEE_USERNAME_IS_REQUIRED = "学员名不能为空";
 
   public static final String OFFICE_IS_REQUIRED = "办公室不能为空";
 
@@ -27,6 +27,8 @@ public class ExceptionMessageConstant {
   public static final String GITHUB_IS_REQUIRED = "github不能为空";
 
   public static final String TRAINEE_NOT_EXIST = "学员不存在";
+
+  public static final String TRAINER_USERNAME_IS_REQUIRED = "讲师名不能为空";
 
   public static final String YEAR_IS_REQUIRED = "历年不能为空";
 

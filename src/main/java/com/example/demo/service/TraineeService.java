@@ -23,8 +23,7 @@ public class TraineeService {
   public List<TraineeVo> findNotGroupedTrainee(Boolean grouped) {
     return traineeRepository.findAllByGroupedOrderByIdAsc(grouped)
             .stream()
-            .map(item -> item.toBo())
-            .map(item -> item.toVo())
+            .map(item -> item.toBo().toVo())
             .collect(Collectors.toList());
   }
 

@@ -18,7 +18,7 @@ public class TraineeVo {
 
   private long id;
 
-  @NotBlank(message = ExceptionMessageConstant.USERNAME_IS_REQUIRED)
+  @NotBlank(message = ExceptionMessageConstant.TRAINEE_USERNAME_IS_REQUIRED)
   private String name;
 
   @NotBlank(message = ExceptionMessageConstant.OFFICE_IS_REQUIRED)

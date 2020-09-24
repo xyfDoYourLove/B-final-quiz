@@ -38,7 +38,6 @@ public class TraineeDo {
 
   public TraineeBo toBo() {
     GroupBo groupBo;
-
     if (this.group == null) {
       groupBo = null;
     }else {

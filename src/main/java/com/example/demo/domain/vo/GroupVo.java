@@ -17,7 +17,7 @@ public class GroupVo {
 
   private String name;
 
-  private List<TrainerVO> trainers;
+  private List<TrainerVo> trainers;
 
   private List<TraineeVo> trainees;
 
