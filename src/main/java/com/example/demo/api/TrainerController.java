@@ -29,7 +29,7 @@ public class TrainerController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public TrainerVo createTrainee(@RequestBody @Valid TrainerVo trainerVo) {
+  public TrainerVo createTrainer(@RequestBody @Valid TrainerVo trainerVo) {
     return trainerService.createTrainer(trainerVo);
   }
 
